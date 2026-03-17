@@ -1,10 +1,13 @@
 package dev.colbster937.papi.expansions.smallcaps;
 
-import java.util.ArrayList;
+
+import info.preva1l.trashcan.util.Tuple;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 public class CharacterMap {
-    public static List<info.preva1l.trashcan.util.Tuple<String, String>> characters = new ArrayList<>();
+    public static List<info.preva1l.trashcan.util.Tuple<String, String>> characters = List.of();
 
     static {
         //                                                    Left        Right
@@ -34,5 +37,19 @@ public class CharacterMap {
         characters.add(info.preva1l.trashcan.util.Tuple.of("x", "x")); // 23
         characters.add(info.preva1l.trashcan.util.Tuple.of("ʏ", "y")); // 24
         characters.add(info.preva1l.trashcan.util.Tuple.of("ᴢ", "z")); // 25
+    }
+
+    public static String get(boolean first, int index) {
+      if (first) return CharacterMap.characters.get(index).first();
+      else { return  CharacterMap.characters.get(index).second();      }
+    }
+
+    public static Integer indexOf(@NotNull Character character) {
+       for (Tuple<String, String> t : characters) {
+           if (t.first().equals(character.toString()) || t.second().equals(character.toString())) {
+               return characters.indexOf(new Tuple<>(t.first(), t.second()));
+           }
+       }
+       return 0;
     }
 }
