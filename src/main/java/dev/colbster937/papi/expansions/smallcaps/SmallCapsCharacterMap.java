@@ -1,65 +1,38 @@
 package dev.colbster937.papi.expansions.smallcaps;
 
-import java.util.Map;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
-public class SmallCapsCharacterMap {
-  private static final Map<Character, Character> characterToSmallCapsMap = new HashMap<Character, Character>();
-  private static final Map<Character, Character> smallCapsToCharacterMap = new HashMap<Character, Character>();
+public class CharacterMap {
+    public static List<info.preva1l.trashcan.util.Tuple<String, String>> characters = new ArrayList<>();
 
-  private static void register(char c, char s) {
-    characterToSmallCapsMap.put(c, s);
-    smallCapsToCharacterMap.put(s, c);
-  }
-
-  public static char char2SmallCaps(char c) {
-    Character m = characterToSmallCapsMap.get(Character.toLowerCase(c));
-    return m != null ? m : c;
-  }
-
-  public static char smallCaps2Char(char s) {
-    Character m = smallCapsToCharacterMap.get(s);
-    return m != null ? m : s;
-  }
-
-  public static String string2SmallCaps(String s) {
-    StringBuilder o = new StringBuilder(s.length());
-    for (char c : s.toCharArray()) o.append(char2SmallCaps(c));
-    return o.toString();
-  }
-
-  public static String smallCaps2String(String s) {
-    StringBuilder o = new StringBuilder(s.length());
-    for (char c : s.toCharArray()) o.append(smallCaps2Char(c));
-    return o.toString();
-  }
-
-  static {
-    register('a', 'ᴀ');
-    register('b', 'ʙ');
-    register('c', 'ᴄ');
-    register('d', 'ᴅ');
-    register('e', 'ᴇ');
-    register('f', 'ꜰ');
-    register('g', 'ɢ');
-    register('h', 'ʜ');
-    register('i', 'ɪ');
-    register('j', 'ᴊ');
-    register('k', 'ᴋ');
-    register('l', 'ʟ');
-    register('m', 'ᴍ');
-    register('n', 'ɴ');
-    register('o', 'ᴏ');
-    register('p', 'ᴘ');
-    register('q', 'ǫ');
-    register('r', 'ʀ');
-    register('s', 's');
-    register('t', 'ᴛ');
-    register('u', 'ᴜ');
-    register('v', 'ᴠ');
-    register('w', 'ᴡ');
-    register('x', 'x');
-    register('y', 'ʏ');
-    register('z', 'ᴢ');
-  }
+    static {
+        //                                                    Left        Right
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴀ", "a")); // 0
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ʙ", "b")); // 1
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴄ", "c")); // 2
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴅ", "d")); // 3
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴇ", "e")); // 4
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ꜰ", "f")); // 5
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ɢ", "g")); // 6
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ʜ", "h")); // 7
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ɪ", "i")); // 8
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴊ", "j")); // 9
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴋ", "k")); // 10
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ʟ", "l")); // 11
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴍ", "m")); // 12
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ɴ", "n")); // 13
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴏ", "o")); // 14
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴘ", "p")); // 15
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ǫ", "q")); // 16
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ʀ", "r")); // 17
+        characters.add(info.preva1l.trashcan.util.Tuple.of("s", "s")); // 18
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴛ", "t")); // 19
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴜ", "u")); // 20
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴠ", "v")); // 21
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴡ", "w")); // 22
+        characters.add(info.preva1l.trashcan.util.Tuple.of("x", "x")); // 23
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ʏ", "y")); // 24
+        characters.add(info.preva1l.trashcan.util.Tuple.of("ᴢ", "z")); // 25
+    }
 }
