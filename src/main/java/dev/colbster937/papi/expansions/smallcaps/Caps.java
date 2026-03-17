@@ -36,11 +36,16 @@ public class Caps {
      * @return the string with small caps font
      */
 
-    public String valueOf(@NotNull Character character) {
-       String a = "";
-       CharacterMap.indexOf(character);
-       return a;
+    public String valueOf(@NotNull Character character) {      
+       return CharacterMap.get(true, CharacterMap.indexOf(character));
     }
+
+    /**
+     * Return a string
+     *
+     * @param s The list of strings to be converted to smallcaps font
+     * @return the string with small caps font
+     */
 
     public String valueOf(@NotNull List<String> s) {
         return valueOf(String.join(" ", s));
@@ -61,4 +66,16 @@ public class Caps {
         }
         return o.toString();
     }
+
+    /**
+     * Unescapes small caps
+     *
+     * @param character the small caps font character 
+     * @return unescaped char
+     */
+
+    public String escape(@NotNull Character character) {
+        return CharacterMap.get(false, CharacterMap.indexOf(character));
+    }
 }
+
