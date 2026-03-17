@@ -39,17 +39,19 @@ public class CharacterMap {
         characters.add(info.preva1l.trashcan.util.Tuple.of("ᴢ", "z")); // 25
     }
 
-    public static String get(boolean first, int index) {
-      if (first) return CharacterMap.characters.get(index).first();
-      else { return  CharacterMap.characters.get(index).second();      }
+     public static String get(boolean first, int index) {
+        Preconditions.checkElementIndex(index, 25);
+        Tuple<String, String> tuple = characters.get(index);
+        return first ? tuple.first() : tuple.second();
     }
 
     public static Integer indexOf(@NotNull Character character) {
-       for (Tuple<String, String> t : characters) {
-           if (t.first().equals(character.toString()) || t.second().equals(character.toString())) {
-               return characters.indexOf(new Tuple<>(t.first(), t.second()));
-           }
+        for (int i = 0; i < characters.size(); i++) {
+            Tuple<String, String> t = characters.get(i);
+            if (t.first().equals(character.toString()) || t.second().equals(character.toString())) {
+                return i;
+            }
        }
-       return 0;
+       return -1;
     }
 }
