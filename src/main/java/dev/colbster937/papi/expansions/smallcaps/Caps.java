@@ -23,8 +23,8 @@ public class Caps {
 
     public String valueOf(@NotNull String s) {
        StringBuilder o = new StringBuilder(s.length());
-       for (Character ch : s.toCharArray()) {
-          o.append(CharacterMap.get(false, CharacterMap.indexOf(ch)));
+       for (Character c : s.toCharArray()) {
+         o.append(valueOf(c));
        }
        return o.toString();
     }
@@ -36,8 +36,11 @@ public class Caps {
      * @return the string with small caps font
      */
 
-    public String valueOf(@NotNull Character character) {      
-       return CharacterMap.get(true, CharacterMap.indexOf(character));
+    public String valueOf(@NotNull Character character) {
+       if (CharacterMap.indexOf(character) == -1) { return character.toString(); }
+       else {
+           return CharacterMap.get(true, CharacterMap.indexOf(character));
+       }
     }
 
     /**
@@ -61,8 +64,8 @@ public class Caps {
 
     public String escape(@NotNull String string) {
         StringBuilder o = new StringBuilder(string.length());
-        for (Character character : string.toCharArray()) {
-          o.append(CharacterMap.get(false, CharacterMap.indexOf(character)));
+        for (Character c : string.toCharArray()) {
+          o.append(escape(c));
         }
         return o.toString();
     }
@@ -70,12 +73,17 @@ public class Caps {
     /**
      * Unescapes small caps
      *
-     * @param character the small caps font character 
+     * @param character the small caps font character
      * @return unescaped char
      */
 
     public String escape(@NotNull Character character) {
+        if (CharacterMap.indexOf(character) == -1) {
+            return character.toString();
+        }
         return CharacterMap.get(false, CharacterMap.indexOf(character));
     }
 }
+
+
 
