@@ -42,7 +42,7 @@ public class CharacterMap {
     }
 
     public static String get(boolean first, int index) {
-        Preconditions.checkElementIndex(index, 25);
+        Preconditions.checkElementIndex(index, 26);
         Tuple<String, String> tuple = characters.get(index);
         return first ? tuple.first() : tuple.second();
     }
