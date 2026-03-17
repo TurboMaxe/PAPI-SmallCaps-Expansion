@@ -1,13 +1,15 @@
 package dev.colbster937.papi.expansions.smallcaps;
 
 
+import com.google.common.base.Preconditions;
 import info.preva1l.trashcan.util.Tuple;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CharacterMap {
-    public static List<info.preva1l.trashcan.util.Tuple<String, String>> characters = List.of();
+    public static List<info.preva1l.trashcan.util.Tuple<String, String>> characters = new ArrayList<>();
 
     static {
         //                                                    Left        Right
@@ -39,7 +41,7 @@ public class CharacterMap {
         characters.add(info.preva1l.trashcan.util.Tuple.of("ᴢ", "z")); // 25
     }
 
-     public static String get(boolean first, int index) {
+    public static String get(boolean first, int index) {
         Preconditions.checkElementIndex(index, 25);
         Tuple<String, String> tuple = characters.get(index);
         return first ? tuple.first() : tuple.second();
@@ -55,3 +57,4 @@ public class CharacterMap {
        return -1;
     }
 }
+
