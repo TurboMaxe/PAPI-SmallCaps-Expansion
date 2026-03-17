@@ -22,6 +22,8 @@ repositories {
   maven("https://repo.papermc.io/repository/maven-public/")
   maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
   maven("https://repo.viaversion.com")
+  maven("https://repo.papermc.io/repository/maven-public/") {
+  maven("https://repo.preva1l.info/releases/")
 }
 
 dependencies {
