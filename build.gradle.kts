@@ -25,9 +25,18 @@ repositories {
 }
 
 dependencies {
-  compileOnly("org.bukkit:bukkit:1.8-R0.1-SNAPSHOT")
+  
   compileOnly("me.clip:placeholderapi:2.11.7")
   compileOnly("com.viaversion:viaversion-api:5.6.0")
+
+  compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
+  implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  implementation("info.preva1l.trashcan:common:1.2.3")
+  implementation("org.ajoberstar.grgit:org.ajoberstar.grgit.gradle.plugin:5.3.3")
+  implementation("info.preva1l.trashcan:Trashcan-Tooling:1.0.2")
+
+  compileOnly("org.projectlombok:lombok:1.18.44")
+  annotationProcessor("org.projectlombok:lombok:1.18.44")
 }
 
 sourceSets {
