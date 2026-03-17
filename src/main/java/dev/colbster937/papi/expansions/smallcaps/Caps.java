@@ -1,8 +1,9 @@
 package dev.colbster937.papi.expansions.smallcaps;
 
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 /**
  *
@@ -10,6 +11,7 @@ import java.util.stream.Stream;
  * @since 3/17/2026
  */
 
+@NoArgsConstructor
 public class Caps {
 
     /**
@@ -19,15 +21,11 @@ public class Caps {
      * @return the string with small caps font
      */
 
-    public String of(@NotNull String s) {
-      StringBuilder o = new StringBuilder(s.length());
-      Stream.of(s.toCharArray()).forEach(character -> {
-           CharacterMap.characters.stream().filter(tuple -> {
-               tuple.second().equals(character);
-               o.append(tuple.first());
-               return true;
-           });
-        });
+    public String valueOf(@NotNull String s) {
+       StringBuilder o = new StringBuilder(s.length());
+       for (Character ch : s.toCharArray()) {
+          o.append(CharacterMap.get(false, CharacterMap.indexOf(ch)));
+       }
        return o.toString();
     }
 
@@ -38,15 +36,16 @@ public class Caps {
      * @return the string with small caps font
      */
 
-    public String of(@NotNull Character character) {
-    String a = "";
-       CharacterMap.characters.stream().filter(tuple -> {
-           tuple.second().equals(character);
-           a.replace("", tuple.first());
-           return true;
-       });
+    public String valueOf(@NotNull Character character) {
+       String a = "";
+       CharacterMap.indexOf(character);
        return a;
     }
+
+    public String valueOf(@NotNull List<String> s) {
+        return valueOf(String.join(" ", s));
+    }
+
 
     /**
      * Unescapes small caps
@@ -56,15 +55,10 @@ public class Caps {
      */
 
     public String escape(@NotNull String string) {
-        String a = "";
         StringBuilder o = new StringBuilder(string.length());
-        Stream.of(string.toCharArray()).forEach(character -> {
-            CharacterMap.characters.stream().filter(tuple -> {
-                tuple.first().equals(character);
-                o.append(tuple.second());
-                return true;
-            });
-        });
+        for (Character character : string.toCharArray()) {
+          o.append(CharacterMap.get(false, CharacterMap.indexOf(character)));
+        }
         return o.toString();
     }
 }
