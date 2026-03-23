@@ -20,7 +20,7 @@ public class Caps {
      * @param s the string that is to be replaced
      * @return the string with small caps font
      */
-
+    
     public String valueOf(@NotNull String s) {
        StringBuilder o = new StringBuilder(s.length());
        for (Character c : s.toCharArray()) {
@@ -44,7 +44,7 @@ public class Caps {
     }
 
     /**
-     * Return a string
+     * Return a string with small caps font using a normal string 
      *
      * @param s The list of strings to be converted to smallcaps font
      * @return the string with small caps font
@@ -56,12 +56,13 @@ public class Caps {
 
 
     /**
-     * Unescapes small caps
+     * Escapes small caps
      *
      * @param string The string with small caps
-     * @return the unescaped string
+     * @return the escaped string 
      */
-
+    
+    @NotNull
     public String escape(@NotNull String string) {
         StringBuilder o = new StringBuilder(string.length());
         for (Character c : string.toCharArray()) {
@@ -76,7 +77,8 @@ public class Caps {
      * @param character the small caps font character
      * @return unescaped char
      */
-
+    
+    @NotNull
     public String escape(@NotNull Character character) {
         if (CharacterMap.indexOf(character) == -1) {
             return character.toString();
